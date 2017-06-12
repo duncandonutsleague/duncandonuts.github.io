@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Micgo League - NBA Live Mobile</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<img src="images/logo.png" alt="" width="100%" />
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Micgo League</h1>
+								<p><!--[-->A friendly and competitive league for NBA Live Mobile.<!--]--></p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#league">League</a></li>
+								<li><a href="#members">Members</a></li>
+								<li><a href="#rules">Rules</a></li>
+								<li><a href="#recruitment">Contact</a></li>
+<!--								<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="league">
+								<h2 class="major">League</h2>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<div class="table-wrapper">
+										<table class="alt">
+											<tbody>
+                                                <tr>
+													<td><b>League Name</b></td>
+                                                    <td id='leagueName'></td>
+												</tr>
+												<tr>
+													<td><b>League Rank</b></td>
+                                                    <td id='leagueRank'></td>
+												</tr>
+                                                <tr>
+													<td><b>Members</b></td>
+                                                    <td id='leagueMembers'></td>
+												</tr>
+												<tr>
+													<td><b>Record</b></td>
+                                                    <td id='leagueRecord'></td>
+												</tr>
+												<tr>
+													<td><b>Points For</b></td>
+                                                    <td id='leaguePointsFor'></td>
+												</tr>
+												<tr>
+													<td><b>Points Against</b></td>
+                                                    <td id='leaguePointsAgainst'></td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="1"></td>
+													<td id='leagueChanged'></td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+                                <h3>Fan Favorites Progress</h3>
+                                    <p style="width:100%" data-value="23">Terry Porter</p>
+                                    <progress max="100" value="23" class="html5">
+                                        <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+                                        <div class="progress-bar">
+                                            <span style="width: 23%">23%</span>
+                                        </div>
+                                    </progress>
+                                    
+                                    <p style="width:100%" data-value="100">Mark Madsen</p>
+                                    <progress max="100" value="100" class="html5">
+                                        <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+                                        <div class="progress-bar">
+                                            <span style="width: 100%">100%</span>
+                                        </div>
+                                    </progress>
+                                
+                                <p style="width:100%" data-value="100">Bo Outlaw</p>
+                                    <progress max="100" value="100" class="html5">
+                                        <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+                                        <div class="progress-bar">
+                                            <span style="width: 100%">100%</span>
+                                        </div>
+                                    </progress>
+                                
+                                <p style="width:100%" data-value="100">Brian Scalabrine</p>
+                                    <progress max="100" value="100" class="html5">
+                                        <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+                                        <div class="progress-bar">
+                                            <span style="width: 100%">100%</span>
+                                        </div>
+                                    </progress>
+        
+							</article>
+
+						<!-- Work -->
+							<article id="members">
+								<h2 class="major">Members</h2>
+								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+								<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Username</th>
+													<th>Franchise Overall</th>
+													<th>Role</th>
+                                                    <th>Available for Tournaments</th>
+												</tr>
+											</thead>
+											<tbody id="membersTable">
+												
+                                        
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="3"></td>
+													<td id="membersCount"></td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+                                <h3>Update Member Info</h3>
+                                <form role="form" id="members-form">
+                                <div class="form-group">
+                                  <label>Username: </label><input class="form-control" name="username" data-type="text" type="text">
+                                </div>
+                                <div class="form-group">
+                                  <label>Password: </label><input class="form-control" name="password" data-type="text" type="text">
+                                </div>
+                                </br>
+                                <button class="btn btn-primary btn-lg" id="btn-submit" type="submit">Update Info</button>
+                                <div id="fg-errors" class="form-group"></div></form>
+							</article>
+
+						<!-- About -->
+							<article id="rules">
+								<h2 class="major">Rules</h2>
+								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
+								<ol id="rulesList">
+                                </ol>
+							</article>
+
+						<!-- Contact -->
+							<article id="recruitment">
+								<h2 class="major">Contact</h2>
+								<p>If you are interested in joining our League or you just want to say hi you can use our private chat on the bottom right corner and a League Admin will be with you shortly.</p>
+<!--
+								<ul class="icons">
+									<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+-->
+								<!--Start of Tawk.to Script-->
+								<script type="text/javascript">
+								var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+								(function(){
+								var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+								s1.async=true;
+								s1.src='https://embed.tawk.to/58ff61414ac4446b24a6bee5/default';
+								s1.charset='UTF-8';
+								s1.setAttribute('crossorigin','*');
+								s0.parentNode.insertBefore(s1,s0);
+								})();
+								</script>
+								<!--End of Tawk.to Script-->
+							</article>
+                        
+                        <!-- DB Transactions -->
+                        <article id="updateDb">
+								<h2 class="major">Database Transactions</h2>
+								<input></input>
+<!--
+								<ul class="icons">
+									<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+-->
+								<!--End of Tawk.to Script-->
+							</article>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+                        <p class="copyright">Made with <span class="icon fa-heart"></span> by Charles Monroe</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+<!--            <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+            <script src="https://micgoleague-16ca.restdb.io/assets/js/jquery-serialize-object.min.js"></script>
+            <script src="https://micgoleague-16ca.restdb.io/assets/js/jquery.datetimepicker.full.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
+            <script>
+              var membersCall = {
+              "async": true,
+              "crossDomain": true,
+              "url": 'https://micgoleague-16ca.restdb.io/rest/members?q={"active" : true}&sort=overall&dir=-1&metafields=true',
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json",
+                "x-apikey": "5901d6523d6945a41da27e5a",
+                "cache-control": "no-cache"
+              }
+            }
+            var leagueCall = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://micgoleague-16ca.restdb.io/rest/league?metafields=true",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json",
+                "x-apikey": "5901d6523d6945a41da27e5a",
+                "cache-control": "no-cache"
+              }
+            }
+            var rulesCall = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://micgoleague-16ca.restdb.io/rest/rules?q={}&sort=order",
+              "method": "GET",
+              "headers": {
+                "content-type": "application/json",
+                "x-apikey": "5901d6523d6945a41da27e5a",
+                "cache-control": "no-cache"
+              }
+            }
+            $.ajax(membersCall).done(function (response) {
+              document.getElementById('leagueMembers').innerHTML = response.length + "/32";
+              document.getElementById('membersCount').innerHTML = response.length + "/32 Members";
+              var membersTable = document.getElementById('membersTable');
+              for (var i = 0; i < response.length; i ++){
+                  var trElement = document.createElement('tr');
+                  var username = document.createElement('td');
+                  var overall = document.createElement('td');
+                  var role = document.createElement('td');
+                  var available = document.createElement('td');
+                  username.innerText = response[i].username;
+                  overall.innerText = response[i].overall;
+                  role.innerText = response[i].role;
+                  available.innerText = response[i].available ? "\u2713" : "\u2717";
+                  
+                  trElement.appendChild(username);
+                  trElement.appendChild(overall);
+                  trElement.appendChild(role);
+                  trElement.appendChild(available);
+                  
+                  membersTable.appendChild(trElement);
+              }
+              setTimeout(function(){
+                    $.ajax(leagueCall).done(function (response) {
+                      document.getElementById('leagueName').innerHTML = response[0].name;
+                      document.getElementById('leagueRank').innerHTML = response[0].rank;
+                      document.getElementById('leagueRecord').innerHTML = response[0].wins + "-" + response[0].losses + "-" + response[0].draws;
+                      document.getElementById('leaguePointsFor').innerHTML = response[0].points_for;
+                      document.getElementById('leaguePointsAgainst').innerHTML = response[0].points_against;
+                      var changed = new Date(response[0]._changed);
+                      var changedDate = changed.getDate() + '/' + (changed.getMonth() +1) + '/' + changed.getFullYear();
+                      document.getElementById('leagueChanged').innerHTML = "Last Update On " + changedDate;
+                      setTimeout(function(){
+                         $.ajax(rulesCall).done(function (response) {
+                          var rulesList = document.getElementById('rulesList');
+                          for (var i = 0; i < response.length; i++) {
+                              var liElement = document.createElement('li');
+                              liElement.innerText = response[i].text;
+                              rulesList.appendChild(liElement);
+                          }
+                        });    
+                      }, 2000);
+                    }); 
+              }, 2000);
+            });  
+              
+            
+            
+            
+            
+             
+            $("#members-form").submit(function (event) {
+                postForm();
+                event.preventDefault();
+                return false;
+            });
+                
+            function postForm(){
+                var username = document.getElementsByName("username")[0].value;
+                var password = document.getElementsByName("password")[0].value;
+                var memberCall = {
+                  "async": true,
+                  "crossDomain": true,
+                  "url": 'https://micgoleague-16ca.restdb.io/rest/members?q={ "username": "' + username + '", "password": "' + password + '" }&metafields=true',
+                  "method": "GET",
+                  "headers": {
+                    "content-type": "application/json",
+                    "x-apikey": "5901d6523d6945a41da27e5a",
+                    "cache-control": "no-cache"
+                  }
+                }
+                $.ajax(memberCall).done(function (response) {
+                  if(response.length > 0){
+                      window.location.href = "./updateMember?id=" +response[0]._id;
+                  } else {
+                      $("#btn-submit").button("reset");
+                      $("#fg-errors").addClass("has-error")
+                        .append("<div class='help-block'>Wrong Username or Password</div>");
+                  }
+                });  
+            }
+            </script>
+
+	</body>
+
+</html>

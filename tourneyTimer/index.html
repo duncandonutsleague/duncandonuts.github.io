@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>restdb.io league</title>
+  <title>Set Tourney Timer</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
   <link href="https://micgoleague-16ca.restdb.io/assets/css/jquery.datetimepicker.min.css" rel="stylesheet">
@@ -42,34 +42,26 @@
   <script src="https://micgoleague-16ca.restdb.io/assets/js/jquery-serialize-object.min.js"></script>
   <script src="https://micgoleague-16ca.restdb.io/assets/js/jquery.datetimepicker.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
+  <script src="../assets/js/date.js"></script>
+  <script src="../assets/js/jquery.countdown.min.js"></script>
 </head>
 <body>
   <form role="form" id="league-form">
 <div class="form-group">
-  <label>Name: </label><input class="form-control" name="name" data-type="text" type="text">
+  <label>Hours: </label><input class="form-control" name="hours" data-type="number" type="text">
 </div>
 <div class="form-group">
-  <label>Rank: </label><input class="form-control" name="rank" data-type="number" type="text">
+  <label>Minutes: </label><input class="form-control" name="minutes" data-type="number" type="text">
 </div>
 <div class="form-group">
-  <label>Wins: </label><input class="form-control" name="wins" data-type="number" type="text">
+  <label>Seconds: </label><input class="form-control" name="seconds" data-type="number" type="text">
 </div>
-<div class="form-group">
-  <label>Losses: </label><input class="form-control" name="losses" data-type="number" type="text">
-</div>
-<div class="form-group">
-  <label>Draws: </label><input class="form-control" name="draws" data-type="number" type="text">
-</div>
-<div class="form-group">
-  <label>Points for: </label><input class="form-control" name="points_for" data-type="number" type="text">
-</div>
-<div class="form-group">
-  <label>Points against: </label><input class="form-control" name="points_against" data-type="number" type="text">
-</div>
-
   <div id="fg-errors" class="form-group">
   </div>
-  <button class="btn btn-primary btn-lg" id="btn-submit" type="submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button></form>
+<!--  <button class="btn btn-primary btn-lg" id="btn-submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Submitting...">Submit</button>-->
+      <input type="button" id="btn-submit" value="Submit"></input>
+    </form>
+      
 
 <script>
 $(function () {
@@ -86,13 +78,6 @@ $(function () {
               }
             }
             $.ajax(leagueCall).done(function (response) {
-              document.getElementsByName("name")[0].value = response[0].name;
-              document.getElementsByName("rank")[0].value = response[0].rank;
-              document.getElementsByName("wins")[0].value = response[0].wins;
-              document.getElementsByName("losses")[0].value = response[0].losses;
-              document.getElementsByName("draws")[0].value = response[0].draws;
-              document.getElementsByName("points_for")[0].value = response[0].points_for;
-              document.getElementsByName("points_against")[0].value = response[0].points_against;
               leagueId = response[0]._id;
                 console.log(leagueId);
 
@@ -223,7 +208,7 @@ $(function () {
   }
 
   function postForm() {
-
+      console.log('posting');
     // clear errors
     $("#league-form .has-error").removeClass("has-error");
     $("#league-form .help-block").remove();
@@ -289,8 +274,9 @@ $(function () {
         });
 
        // submit the whole form with attachment ids 
-
-       ajaxSettings.data = JSON.stringify(formObj);
+       var tournamentEndDate = Date.now().add({hours: $('[name=hours]').val(), minutes: $('[name=minutes]').val(), seconds: $('[name=seconds]').val()});
+        console.log(tournamentEndDate);
+       ajaxSettings.data = JSON.stringify({'tournament_end_date' : tournamentEndDate.toString()});
         console.log(ajaxSettings.data);
         $.ajax(ajaxSettings)
         .done(function (response) {
@@ -332,12 +318,16 @@ $(function () {
         }
       });
   };
-
   $("#league-form").submit(function (event) {
+      console.log('submit');
         postForm();
         event.preventDefault();
         return false;
     });
+  $('#btn-submit').click(function(event){
+     postForm();
+     event.preventDefault();
+  });
 }); 
 });
 </script></body>

@@ -85,6 +85,9 @@
 											</tfoot>
 										</table>
 									</div>
+                                <h3>Current Tournament Countdown</h3>
+                                <div style="text-align:center;font-size:35px;font-family:monospace;" id="tourneyTimer"></div>
+                                <br />
                                 <h3>Fan Favorites Progress</h3>
                                     <p style="width:100%" data-value="23">Terry Porter</p>
                                     <progress max="100" value="23" class="html5">
@@ -231,6 +234,8 @@
             <script src="https://micgoleague-16ca.restdb.io/assets/js/jquery-serialize-object.min.js"></script>
             <script src="https://micgoleague-16ca.restdb.io/assets/js/jquery.datetimepicker.full.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
+            <script src="assets/js/date.js"></script>
+            <script src="assets/js/jquery.countdown.min.js"></script>
             <script>
               var membersCall = {
               "async": true,
@@ -294,6 +299,11 @@
                       document.getElementById('leagueRecord').innerHTML = response[0].wins + "-" + response[0].losses + "-" + response[0].draws;
                       document.getElementById('leaguePointsFor').innerHTML = response[0].points_for;
                       document.getElementById('leaguePointsAgainst').innerHTML = response[0].points_against;
+                      $("#tourneyTimer").countdown(new Date(response[0].tournament_end_date), function(event) {
+                        $(this).text(
+                          event.strftime('%H:%M:%S')
+                        );
+                      });
                       var changed = new Date(response[0]._changed);
                       var changedDate = changed.getDate() + '/' + (changed.getMonth() +1) + '/' + changed.getFullYear();
                       document.getElementById('leagueChanged').innerHTML = "Last Update On " + changedDate;
